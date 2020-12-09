@@ -14,7 +14,7 @@ let rotateAngle = 0;
   let skewedAngle = -90 + angle;
   let rotateAngle = 0; // 旋轉從 0 開始
   items.forEach((item, index) => {
-    const temp = `<li class="slice" style="transform: rotate(${ rotateAngle }deg) skewY(${ skewedAngle }deg); background-color: ${colors[index]};" data-item="${items[index]}"></li>`
+    const temp = `<li class="slice" style="transform: rotate(${ rotateAngle }deg) skewY(${ skewedAngle }deg); background-color: ${colors[index]};" data-item="${items[index]}">${item.name}</li>`
     // console.log(temp)
     slice += temp;
     rotateAngle -= angle; // 旋轉 - angle

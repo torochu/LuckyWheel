@@ -14,7 +14,7 @@
   position: relative;
   margin: 1em auto;
   padding: 0;
-  width: 32em;
+  max-width: 32em;
   height: 32em;
   border-radius: 50%;
   list-style: none;
