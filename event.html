@@ -10,39 +10,87 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.js'></script>
   <link
     rel="stylesheet"
+    href="./css/reset.css"
+  >
+  <link
+    rel="stylesheet"
     href="./css/event.css"
   >
   <title>活動頁</title>
 </head>
 
 <body id="app">
-  <div class="container">
-    <div class="wheelElements">
-      <ul
-        id="pieText"
-        class="pieText"
-      >
+  <main class="header">
+    <div class="container">
+      <div class="pieWrapper">
+        <img
+          class="string"
+          src="./img/Events_ball_top.png"
+          alt=""
+        >
+        <img
+          class="candyCane"
+          src="./img/Events_arrowcandy.png"
+          alt=""
+        >
+        <div
+          id="pie"
+          class="pie"
+        >
+          <div class="centerDot"></div>
+          <div
+            id="textsWrapper"
+            class="textsWrapper"
+          >
 
-      </ul>
-      <ul
-        id="pie"
-        class="pie"
-      >
-        <!-- <li class="slice slice-one"></li>
-        <li class="slice slice-two"></li>
-        <li class="slice slice-three"></li>
-        <li class="slice slice-four"></li>
-        <li class="slice slice-five"></li>
-        <li class="slice slice-six"></li>
-        <li class="slice slice-seven"></li>
-        <li class="slice slice-eight"></li>
-        <li class="slice slice-nine"></li>
-        <li class="slice slice-ten"></li>
-        <li class="slice slice-eleven"></li>
-        <li class="slice slice-twelve"></li> -->
-      </ul>
+          </div>
+          <div
+            id="giftsWrapper"
+            class="giftsWrapper"
+          >
+
+          </div>
+        </div>
+      </div>
+      <h1 class="heading"></h1>
+      <div class="draw">
+        <small>lucky ball</small>
+        <button id="rotateBtn">GO</button>
+      </div>
+      <div class="selectorWrapper">
+        <div class="selector">
+          <h4 class="selectorHeading">現在我們有請..</h4>
+          <h4 class="selectorName">王小明</h4>
+        </div>
+        <div class="arrow">
+          <img
+            src="./img/gifTo_web.png"
+            alt=""
+          >
+        </div>
+        <div class="selectorGift">
+          <h4 class="selectorHeading">你的命運是..</h4>
+          <h4 class="selectorName">王小明</h4>
+        </div>
+      </div>
     </div>
-  </div>
+  </main>
+
+
+
+  <footer>
+    <img
+      class="giftBox"
+      src="./img/Events_opengift_opengift.png"
+      alt=""
+    >
+    <div class="container">
+      <div class="winners">
+        <h2>中獎名單</h2>
+      </div>
+    </div>
+  </footer>
+
   <!-- <script
     type="module"
     src="./js/apiService.js"

@@ -1,5 +1,5 @@
 {
-  "eventHistory":[
+  "eventHistory": [
     {
       "id": 222221,
       "eventId": 1234567,
@@ -9,26 +9,50 @@
   "events": [
     {
       "id": 1234567,
-      "name": "Christmas 抽獎活動",
+      "name": "1st 爛禮物抽獎大會",
       "start": "2020-12-07T00:00:00",
       "end": "2020-12-10T00:00:00"
     },
     {
       "id": 1234569,
-      "name": "空白 抽獎活動",
+      "name": "Christmas 抽獎活動",
       "start": "2020-12-04T00:00:00",
       "end": "2020-12-7T00:00:00"
     },
     {
       "id": 1234570,
-      "name": "測試 抽獎活動",
+      "name": "測試 抽獎活動(5)",
       "start": "2020-12-08T14:35:00",
-      "end": "2020-12-7T00:00:00"
+      "end": "2020-12-20T00:00:00"
     },
     {
       "id": 1234571,
       "name": "活動 12/12 抽獎",
       "start": "2020-12-12T14:35:00",
+      "end": "2020-12-13T00:00:00"
+    },
+    {
+      "id": 333,
+      "name": "抽獎活動 (6)",
+      "start": "2020-12-07T14:35:00",
+      "end": "2020-12-13T00:00:00"
+    },
+    {
+      "id": 3334,
+      "name": "抽獎活動 (7)",
+      "start": "2020-12-07T14:35:00",
+      "end": "2020-12-13T00:00:00"
+    },
+    {
+      "id": 12,
+      "name": "抽獎活動 (12)",
+      "start": "2020-12-07T14:35:00",
+      "end": "2020-12-13T00:00:00"
+    },
+    {
+      "id": 9,
+      "name": "抽獎活動 (9)",
+      "start": "2020-12-07T14:35:00",
       "end": "2020-12-13T00:00:00"
     }
   ],
@@ -85,6 +109,144 @@
     }
   ],
   "gifts": [
+    {
+      "id": 10001,
+      "eventId": 12,
+      "giftName": "8.3%獎1",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10002,
+      "eventId": 12,
+      "giftName": "8.3%獎2",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10003,
+      "eventId": 12,
+      "giftName": "8.3%獎3",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10004,
+      "eventId": 12,
+      "giftName": "8.3%獎4",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10005,
+      "eventId": 12,
+      "giftName": "8.3%獎5",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10006,
+      "eventId": 12,
+      "giftName": "8.3%獎6",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10007,
+      "eventId": 12,
+      "giftName": "8.3%獎7",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10008,
+      "eventId": 12,
+      "giftName": "8.3%獎8",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10009,
+      "eventId": 12,
+      "giftName": "8.3%獎9",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10010,
+      "eventId": 12,
+      "giftName": "8.3%獎10",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10011,
+      "eventId": 12,
+      "giftName": "8.3%獎11",
+      "percent": 8.3333333
+    },
+    {
+      "id": 10012,
+      "eventId": 12,
+      "giftName": "8.3%獎12",
+      "percent": 8.3333333
+    },
+    {
+      "id": 1006,
+      "eventId": 333,
+      "giftName": "20%獎1",
+      "percent": 20
+    },
+    {
+      "id": 1007,
+      "eventId": 333,
+      "giftName": "20%獎2",
+      "percent": 20
+    },
+    {
+      "id": 1008,
+      "eventId": 333,
+      "giftName": "大獎5%",
+      "percent": 5
+    },
+    {
+      "id": 1009,
+      "eventId": 333,
+      "giftName": "20%獎4",
+      "percent": 20
+    },
+    {
+      "id": 1010,
+      "eventId": 333,
+      "giftName": "獎品15%",
+      "percent": 15
+    },
+    {
+      "id": 1011,
+      "eventId": 333,
+      "giftName": "20%獎6",
+      "percent": 20
+    },
+    {
+      "id": 1001,
+      "eventId": 1234570,
+      "giftName": "測試1",
+      "percent": 20
+    },
+    {
+      "id": 1002,
+      "eventId": 1234570,
+      "giftName": "測試2",
+      "percent": 20
+    },
+    {
+      "id": 1003,
+      "eventId": 1234570,
+      "giftName": "測試3",
+      "percent": 20
+    },
+    {
+      "id": 1004,
+      "eventId": 1234570,
+      "giftName": "測試4",
+      "percent": 20
+    },
+    {
+      "id": 1005,
+      "eventId": 1234570,
+      "giftName": "測試5",
+      "percent": 20
+    },
     {
       "id": 38475794,
       "eventId": 1234567,
@@ -144,6 +306,102 @@
       "eventId": 1234567,
       "giftName": "杯子",
       "percent": 10
+    },
+    {
+      "id": 1012,
+      "eventId": 3334,
+      "giftName": "20%獎1",
+      "percent": 20
+    },
+    {
+      "id": 1013,
+      "eventId": 3334,
+      "giftName": "20%獎2",
+      "percent": 15
+    },
+    {
+      "id": 1014,
+      "eventId": 3334,
+      "giftName": "大獎5%",
+      "percent": 5
+    },
+    {
+      "id": 1015,
+      "eventId": 3334,
+      "giftName": "20%獎4",
+      "percent": 15
+    },
+    {
+      "id": 1016,
+      "eventId": 3334,
+      "giftName": "獎品15%",
+      "percent": 15
+    },
+    {
+      "id": 1017,
+      "eventId": 3334,
+      "giftName": "20%獎6",
+      "percent": 15
+    },
+    {
+      "id": 1018,
+      "eventId": 3334,
+      "giftName": "20%獎7",
+      "percent": 15
+    },
+    {
+      "id": 991,
+      "eventId": 9,
+      "giftName": "獎1",
+      "percent": 15
+    },
+    {
+      "id": 992,
+      "eventId": 9,
+      "giftName": "獎2",
+      "percent": 15
+    },
+    {
+      "id": 993,
+      "eventId": 9,
+      "giftName": "獎3",
+      "percent": 15
+    },
+    {
+      "id": 994,
+      "eventId": 9,
+      "giftName": "獎4",
+      "percent": 15
+    },
+    {
+      "id": 995,
+      "eventId": 9,
+      "giftName": "獎5",
+      "percent": 15
+    },
+    {
+      "id": 996,
+      "eventId": 9,
+      "giftName": "獎6",
+      "percent": 15
+    },
+    {
+      "id": 997,
+      "eventId": 9,
+      "giftName": "獎7",
+      "percent": 15
+    },
+    {
+      "id": 998,
+      "eventId": 9,
+      "giftName": "獎8",
+      "percent": 15
+    },
+    {
+      "id": 999,
+      "eventId": 9,
+      "giftName": "獎9",
+      "percent": 15
     }
   ]
 }
