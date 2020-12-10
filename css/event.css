@@ -97,6 +97,10 @@ main .container {
   height: 50%;
   transform-origin: 0% 100%;
 }
+
+.selected {
+  background-color: #fff !important;
+}
 /* 
 .slice:nth-child(odd) {
   background-color: #ffd15b;
@@ -123,6 +127,7 @@ main .container {
  */
 
 h1.heading {
+  margin-top: 30px;
   color: #fff;
   align-self: center;
   font-size: 42px;
@@ -160,38 +165,55 @@ h1.heading {
 }
 
 .selectorWrapper {
-  margin: 20px 0 50px 0;
+  padding-top: 20px;
+  /* margin: 20px 0 50px 0; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  margin: 0 auto;
   align-items: center;
+  /* border: 1px solid #fff;; */
+  max-width: 80%;
+}
+
+.selectorWrapper img {
+  margin: 0 30px;
 }
 
 .selector,
 .selectorGift {
-  margin: 0 60px;
+  /* margin: 0 60px; */
   flex-direction: column;
+  /* flex-wrap: wrap; */
   display: flex;
   justify-content: center;
+  /* border: 1px solid #000; */
 }
 
 .selectorWrapper .selectorHeading,
 .selectorWrapper .selectorName {
-  display: inline-block;
+  /* display: inline-block; */
   display: flex;
   justify-content: center;
+  /* background-color: rgba(255,255,255,.3); */
+  
 }
 
 .selectorWrapper .selectorHeading {
-  font-size: 25px;
+  font-size: 1.3em;
   letter-spacing: 0.7em;
   color: #ecc1ae;
+  width: 100%;
+
 }
 
 .selectorWrapper .selectorName {
   margin-top: 10px;
-  font-size: 3.12em;
-  letter-spacing: 1em;
+  font-size: 3em;
+  letter-spacing: 20px;
   color: #fff;
+  /* width: 100%; */
+  padding: 0;
+  
 }
 
 footer {
