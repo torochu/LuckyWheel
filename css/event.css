@@ -260,6 +260,12 @@ footer .container {
 footer .container .winners {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.winner_list li {
+  margin: 10px 0;
 }
 
 @media (max-width: 950px) {

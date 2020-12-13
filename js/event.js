@@ -5,6 +5,7 @@ import {
   removeEventGift,
   removeEventMember,
   createEventHistory,
+  fetchEventHistory,
 } from "./api.js";
 // import timer from './timer.js'
 
@@ -19,6 +20,8 @@ const player = document.getElementById("player");
 const heading = document.querySelector(".heading");
 const rotateBtn = document.getElementById("rotateBtn");
 const nextPlayer = document.getElementById("nextPlayer");
+const winnerList = document.getElementById("winner_list");
+
 let itemAngle = 0; // 每個扇型佔有多少角度
 let startAngle = 0; // 起始角度
 let goToAngle = 0; // 終點角度
@@ -29,6 +32,7 @@ let eventGifts = [];
 let eventMembers = [];
 let selectedGift = {};
 let selector = {};
+let eventWinners = [];
 let historyObj = {};
 
 // FUNCTION: 倒數計時
@@ -148,6 +152,7 @@ async function modifyList(obj) {
     // ...selectedGift,
     // ...selector,
     id: Date.now(),
+    eventId: event.id,
     memberName: selector.memberName,
     giftName: selectedGift.giftName,
     // eventId: event.id,
@@ -171,18 +176,6 @@ async function modifyList(obj) {
 
   console.log(historyObj);
 }
-
-// async function removeMemberGift(obj) {
-//   const { gift, member } = obj;
-//   try {
-//     // 移除 gift item
-//     await removeEventGift(gift.id);
-//     // 移除 中獎者
-//     await removeEventMember(member.id);
-//   } catch (err) {
-//     console.log('錯誤：', err);
-//   }
-// }
 
 // FUNCTION: 下一回合
 let nextRound = () => {
@@ -253,13 +246,25 @@ let afterTransition = (e) => {
   }, 2000);
 };
 
+let renderEventHistory = () => {
+  let historyTempalte = "";
+  for (let item of eventWinners) {
+    console.log(item);
+    historyTempalte += `<li>${item.memberName} 抽到了 ${item.giftName}</li>`;
+  }
+  winnerList.innerHTML = historyTempalte;
+};
+
 async function getData(eventID) {
   try {
     await fetchEventGifts(eventID).then((res) => (eventGifts = res.data));
     await fetchEventMembers(eventID).then((res) => (eventMembers = res.data));
+    await fetchEventHistory(eventID).then((res) => (eventWinners = res.data));
     console.log("目前禮品數量：", eventGifts.length);
     console.log("目前參與者人數: ", eventMembers.length);
+    console.log("得獎資料: ", eventWinners.length);
     renderWheel();
+    renderEventHistory();
   } catch (err) {
     console.log(err);
   }
@@ -271,11 +276,11 @@ nextPlayer.addEventListener("click", nextRound);
 
 (function () {
   const eventID = window.location.search.split("=")[1];
-  const obj = { id: 1234456677, name: "test" };
+  // const obj = { id: 1234456677, name: "test" };
   // const postpost = createEventHistory(obj).then((res) => {
   // console.log("response", res);
   // });
-  console.log(isEmptyObj(historyObj));
+  // console.log(isEmptyObj(historyObj));
 
   fetchEvent(eventID).then((res) => {
     if (res.status === 200) {
