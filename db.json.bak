@@ -1,20 +1,5 @@
 {
-  "eventHistory": [
-    {
-      "id": 1234456677,
-      "name": "test"
-    },
-    {
-      "id": 1607822847138,
-      "memberName": "Davie",
-      "giftName": "墨水"
-    },
-    {
-      "id": 1607822863440,
-      "memberName": "Will",
-      "giftName": "飲料杯"
-    }
-  ],
+  "eventHistory": [],
   "events": [
     {
       "id": 1234567,
@@ -67,79 +52,104 @@
   ],
   "members": [
     {
-      "id": 123461,
+      "id":123461,
       "eventId": 9,
       "memberName": "Andy9"
     },
     {
-      "id": 123462,
+      "id":123462,
       "eventId": 9,
       "memberName": "Eddie9"
     },
     {
-      "id": 123463,
+      "id":123463,
       "eventId": 9,
       "memberName": "Mio9"
     },
     {
-      "id": 123464,
+      "id":123464,
       "eventId": 9,
       "memberName": "Aki9"
     },
     {
-      "id": 123465,
+      "id":123465,
       "eventId": 9,
       "memberName": "Irene9"
     },
     {
-      "id": 123466,
+      "id":123466,
       "eventId": 9,
       "memberName": "Sharry9"
     },
     {
-      "id": 123467,
+      "id":123467,
       "eventId": 9,
       "memberName": "Davie9"
     },
     {
-      "id": 123468,
+      "id":123468,
       "eventId": 9,
       "memberName": "Danny9"
     },
     {
-      "id": 123469,
+      "id":123469,
       "eventId": 9,
       "memberName": "Hugo9"
     },
     {
-      "id": 123470,
+      "id":123470,
       "eventId": 9,
       "memberName": "Will9"
     },
     {
-      "id": 123451,
+      "id":123451,
       "eventId": 1234567,
       "memberName": "Andy"
     },
     {
-      "id": 123453,
+      "id":123452,
+      "eventId": 1234567,
+      "memberName": "Eddie"
+    },
+    {
+      "id":123453,
       "eventId": 1234567,
       "memberName": "Mio"
     },
     {
-      "id": 123454,
+      "id":123454,
       "eventId": 1234567,
       "memberName": "Aki"
     },
     {
-      "id": 123456,
+      "id":123455,
+      "eventId": 1234567,
+      "memberName": "Irene"
+    },
+    {
+      "id":123456,
       "eventId": 1234567,
       "memberName": "Sharry"
     },
     {
-      "id": 123459,
+      "id":123457,
+      "eventId": 1234567,
+      "memberName": "Davie"
+    },
+    {
+      "id":123458,
+      "eventId": 1234567,
+      "memberName": "Danny"
+    },
+    {
+      "id":123459,
       "eventId": 1234567,
       "memberName": "Hugo"
+    },
+    {
+      "id":123460,
+      "eventId": 1234567,
+      "memberName": "Will"
     },
     {
       "id": 3331,
@@ -185,6 +195,11 @@
       "id": 11111113,
       "eventId": 1234569,
       "memberName": "名字"
+    },
+    {
+      "id": 222225,
+      "eventId": 1234567,
+      "memberName": "Joe"
     }
   ],
   "gifts": [
@@ -192,6 +207,36 @@
       "id": 1231,
       "eventId": 1234567,
       "giftName": "PlayStation 5",
+      "percent": 10
+    },
+    {
+      "id": 1232,
+      "eventId": 1234567,
+      "giftName": "MacBook Pro",
+      "percent": 10
+    },
+    {
+      "id": 1233,
+      "eventId": 1234567,
+      "giftName": "PlayStation 4",
+      "percent": 10
+    },
+    {
+      "id": 1234,
+      "eventId": 1234567,
+      "giftName": "55吋電視",
+      "percent": 10
+    },
+    {
+      "id": 1235,
+      "eventId": 1234567,
+      "giftName": "娃娃",
+      "percent": 10
+    },
+    {
+      "id": 1236,
+      "eventId": 1234567,
+      "giftName": "飲料杯",
       "percent": 10
     },
     {
@@ -210,6 +255,12 @@
       "id": 1239,
       "eventId": 1234567,
       "giftName": "印表機",
+      "percent": 10
+    },
+    {
+      "id": 1240,
+      "eventId": 1234567,
+      "giftName": "墨水",
       "percent": 10
     },
     {
