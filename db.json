@@ -39,6 +39,18 @@
       "eventId": 1234567,
       "memberName": "Mio",
       "giftName": "印表機"
+    },
+    {
+      "id": 1607913980132,
+      "eventId": 1234567,
+      "memberName": "Danny",
+      "giftName": "娃娃"
+    },
+    {
+      "id": 1607914210452,
+      "eventId": 1234567,
+      "memberName": "Davie",
+      "giftName": "PlayStation 4"
     }
   ],
   "events": [
@@ -148,16 +160,6 @@
       "memberName": "Irene"
     },
     {
-      "id": 123457,
-      "eventId": 1234567,
-      "memberName": "Davie"
-    },
-    {
-      "id": 123458,
-      "eventId": 1234567,
-      "memberName": "Danny"
-    },
-    {
       "id": 3331,
       "eventId": 333,
       "memberName": "3331"
@@ -209,18 +211,6 @@
     }
   ],
   "gifts": [
-    {
-      "id": 1233,
-      "eventId": 1234567,
-      "giftName": "PlayStation 4",
-      "percent": 10
-    },
-    {
-      "id": 1235,
-      "eventId": 1234567,
-      "giftName": "娃娃",
-      "percent": 10
-    },
     {
       "id": 1237,
       "eventId": 1234567,

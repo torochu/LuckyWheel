@@ -99,6 +99,27 @@ main .container {
   /* background-color: #fff; */
 }
 
+/* 單獨一個 slice */
+.slice-full {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0% 50%;
+}
+
+/* 二個 slices */
+.slice-half {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0% 50%;
+}
+
+/* 三個 slices (含) 以上 */
 .slice {
   overflow: hidden;
   position: absolute;
@@ -218,7 +239,6 @@ h1.heading {
   font-size: 1.1em;
   letter-spacing: 0.7em;
   color: #ecc1ae;
-  
 }
 
 .selectorWrapper .selectorName {
@@ -276,8 +296,6 @@ footer .container .winners {
   .arrow {
     margin: 40px 0 40px 0;
   }
-
-
 }
 
 @media (max-width: 550px) {
