@@ -74,8 +74,22 @@ main .container {
     rgba(255, 190, 91, 1) 40%,
     rgba(255, 233, 156, 1) 100%
   );
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+.pieShadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1em auto; /*  16px */
+  padding: 0;
+  width: 23em;
+  height: 23em;
+  border-radius: 50%;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  box-shadow: 1px 7px 7px rgba(0, 0, 0, 0.25);
+  /* z-index: 5; */
+}
+
 /* 
 .centerDot {
   position: absolute;

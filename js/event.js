@@ -101,7 +101,7 @@ let renderWheel = () => {
 
   // 隨機挑選玩家
   selector = eventMembers[Math.floor(Math.random() * eventMembers.length)];
-  player.textContent = selector.memberName;
+  player.textContent = eventMembers.length !== 0 ? selector.memberName : '';
   const oddEven = eventGifts.length % 3 === 1 ? colors2 : colors;
   let gifts = eventGifts.sort(shuffle); // 打亂排序的獎項 array
   // console.log("判斷雙單數", oddEven);
@@ -114,18 +114,27 @@ let renderWheel = () => {
   let textTemplate = '';
 
   switch (eventGifts.length) {
+    case 0:
+      textTemplate += `
+        <div
+          class="textBox"
+          style="
+            transform: rotate(0deg);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        ">
+          沒有禮物了....
+        </div>
+      `;
+      break;
     case 1:
       console.log('只剩一個禮物');
       eventGifts.forEach((item, index) => {
-        textTemplate += `
-          <div
-            class="textBox"
-            style="
-              transform: rotate(${rotateAngle}deg);
-          ">
-            ${item.giftName}
-          </div>
-        `;
+        textTemplate += assembleTextBox(item, rotateAngle, itemAngle);
 
         pieTemplate += `<div data-gift="${item.id}" class="slice-full"
         style="background: ${oddEven[index % oddEven.length]}"
@@ -136,15 +145,7 @@ let renderWheel = () => {
     case 2:
       console.log('只剩 2 個禮物');
       eventGifts.forEach((item, index) => {
-        textTemplate += `
-          <div
-            class="textBox"
-            style="
-              transform: rotate(${rotateAngle + itemAngle / 2}deg);
-          ">
-            ${item.giftName}
-          </div>
-        `;
+        textTemplate += assembleTextBox(item, rotateAngle, itemAngle);
 
         pieTemplate += `
           <div 
