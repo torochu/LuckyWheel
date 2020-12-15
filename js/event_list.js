@@ -33,10 +33,32 @@ let render = () => {
   let lists = '';
   const currentDate = Date.parse(new Date());
   // const activeEventsArr = activeEvents(currentDate, events)
+  function eventIsOver(now, start, end) {
+    if (now > Date.parse(start) && now < Date.parse(end)) {
+      return '活動進行中';
+    } else if (now > Date.parse(start) && now > Date.parse(end)) {
+      return '活動已經結束';
+    } else {
+      return '活動未開始';
+    }
+  }
 
   // activeEventsArr.forEach((item) => {
   events.forEach((item) => {
-    let str = `<li><a href="./event.html?id=${item.id}">${item.name}</a></li>`;
+    let now = new Date().getTime();
+    console.log('現在: ', now);
+    console.log('開始: ', Date.parse(item.start));
+    console.log('結束: ', Date.parse(item.end));
+    let str = `
+      <li>
+        <a href="./event.html?id=${item.id}">
+          ${item.name}
+        </a>, 
+        開始時間: ${item.start.split('T')[0]}; 
+        結束時間: ${item.end.split('T')[0]};
+        ${eventIsOver(now, item.start, item.end)}
+      </li>
+    `;
     lists += str;
   });
   eventList.innerHTML = lists;

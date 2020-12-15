@@ -1,63 +1,57 @@
 {
   "eventHistory": [
     {
-      "id": 1607916265368,
-      "eventId": 1234567,
-      "memberName": "Hugo",
-      "giftName": "MacBook Pro"
-    },
-    {
-      "id": 1607916275259,
-      "eventId": 1234567,
-      "memberName": "Aki",
-      "giftName": "墨水"
-    },
-    {
-      "id": 1607916431090,
-      "eventId": 1234567,
-      "memberName": "Irene",
-      "giftName": "PlayStation 4"
-    },
-    {
-      "id": 1607916444160,
-      "eventId": 1234567,
-      "memberName": "Andy",
-      "giftName": "55吋電視"
-    },
-    {
-      "id": 1607916454973,
-      "eventId": 1234567,
-      "memberName": "Davie",
-      "giftName": "PlayStation 5"
-    },
-    {
-      "id": 1607916465052,
+      "id": 1607998314202,
       "eventId": 1234567,
       "memberName": "Mio",
-      "giftName": "杯墊"
-    },
-    {
-      "id": 1607916480962,
-      "eventId": 1234567,
-      "memberName": "Eddie",
-      "giftName": "印表機"
-    },
-    {
-      "id": 1607916627100,
-      "eventId": 1234567,
-      "memberName": "Danny",
-      "giftName": "行動電源"
-    },
-    {
-      "id": 1607916641116,
-      "eventId": 1234567,
-      "memberName": "Sharry",
       "giftName": "飲料杯"
     },
     {
-      "id": 1607916652014,
+      "id": 1607998335880,
+      "eventId": 1234567,
+      "memberName": "Davie",
+      "giftName": "55吋電視"
+    },
+    {
+      "id": 1607998358714,
+      "eventId": 1234567,
+      "memberName": "Aki",
+      "giftName": "MacBook Pro"
+    },
+    {
+      "id": 1607998369961,
       "eventId": 1234567,
       "memberName": "Will",
+      "giftName": "印表機"
+    },
+    {
+      "id": 1607998379722,
+      "eventId": 1234567,
+      "memberName": "Irene",
+      "giftName": "行動電源"
+    },
+    {
+      "id": 1607998391096,
+      "eventId": 1234567,
+      "memberName": "Danny",
+      "giftName": "杯墊"
+    },
+    {
+      "id": 1607998402014,
+      "eventId": 1234567,
+      "memberName": "Andy",
+      "giftName": "PlayStation 4"
+    },
+    {
+      "id": 1607998411594,
+      "eventId": 1234567,
+      "memberName": "Hugo",
+      "giftName": "PlayStation 5"
+    },
+    {
+      "id": 1607998423733,
+      "eventId": 1234567,
+      "memberName": "Sharry",
       "giftName": "娃娃"
     }
   ],
@@ -72,7 +66,7 @@
       "id": 1234569,
       "name": "Christmas 抽獎活動",
       "start": "2020-12-04T00:00:00",
-      "end": "2020-12-7T00:00:00"
+      "end": "2020-12-07T00:00:00"
     },
     {
       "id": 1234570,
