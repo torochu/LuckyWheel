@@ -1,66 +1,11 @@
 {
-  "eventHistory": [
-    {
-      "id": 1607998314202,
-      "eventId": 1234567,
-      "memberName": "Mio",
-      "giftName": "飲料杯"
-    },
-    {
-      "id": 1607998335880,
-      "eventId": 1234567,
-      "memberName": "Davie",
-      "giftName": "55吋電視"
-    },
-    {
-      "id": 1607998358714,
-      "eventId": 1234567,
-      "memberName": "Aki",
-      "giftName": "MacBook Pro"
-    },
-    {
-      "id": 1607998369961,
-      "eventId": 1234567,
-      "memberName": "Will",
-      "giftName": "印表機"
-    },
-    {
-      "id": 1607998379722,
-      "eventId": 1234567,
-      "memberName": "Irene",
-      "giftName": "行動電源"
-    },
-    {
-      "id": 1607998391096,
-      "eventId": 1234567,
-      "memberName": "Danny",
-      "giftName": "杯墊"
-    },
-    {
-      "id": 1607998402014,
-      "eventId": 1234567,
-      "memberName": "Andy",
-      "giftName": "PlayStation 4"
-    },
-    {
-      "id": 1607998411594,
-      "eventId": 1234567,
-      "memberName": "Hugo",
-      "giftName": "PlayStation 5"
-    },
-    {
-      "id": 1607998423733,
-      "eventId": 1234567,
-      "memberName": "Sharry",
-      "giftName": "娃娃"
-    }
-  ],
+  "eventHistory": [],
   "events": [
     {
       "id": 1234567,
       "name": "1st 爛禮物抽獎大會",
       "start": "2020-12-07T00:00:00",
-      "end": "2020-12-10T00:00:00"
+      "end": "2020-12-25T00:00:00"
     },
     {
       "id": 1234569,
@@ -89,8 +34,8 @@
     {
       "id": 3334,
       "name": "抽獎活動 (7)",
-      "start": "2020-12-07T14:35:00",
-      "end": "2020-12-13T00:00:00"
+      "start": "2020-12-17T14:35:00",
+      "end": "2020-12-21T00:00:00"
     },
     {
       "id": 12,
@@ -157,6 +102,56 @@
       "memberName": "Will9"
     },
     {
+      "id": 123451,
+      "eventId": 1234567,
+      "memberName": "Andy"
+    },
+    {
+      "id": 123452,
+      "eventId": 1234567,
+      "memberName": "Eddie"
+    },
+    {
+      "id": 123453,
+      "eventId": 1234567,
+      "memberName": "Mio"
+    },
+    {
+      "id": 123454,
+      "eventId": 1234567,
+      "memberName": "Aki"
+    },
+    {
+      "id": 123455,
+      "eventId": 1234567,
+      "memberName": "Irene"
+    },
+    {
+      "id": 123456,
+      "eventId": 1234567,
+      "memberName": "Sharry"
+    },
+    {
+      "id": 123457,
+      "eventId": 1234567,
+      "memberName": "Davie"
+    },
+    {
+      "id": 123458,
+      "eventId": 1234567,
+      "memberName": "Danny"
+    },
+    {
+      "id": 123459,
+      "eventId": 1234567,
+      "memberName": "Hugo"
+    },
+    {
+      "id": 123460,
+      "eventId": 1234567,
+      "memberName": "Will"
+    },
+    {
       "id": 3331,
       "eventId": 333,
       "memberName": "3331"
@@ -203,6 +198,66 @@
     }
   ],
   "gifts": [
+    {
+      "id": 1231,
+      "eventId": 1234567,
+      "giftName": "PlayStation 5",
+      "percent": 10
+    },
+    {
+      "id": 1232,
+      "eventId": 1234567,
+      "giftName": "MacBook Pro",
+      "percent": 10
+    },
+    {
+      "id": 1233,
+      "eventId": 1234567,
+      "giftName": "PlayStation 4",
+      "percent": 10
+    },
+    {
+      "id": 1234,
+      "eventId": 1234567,
+      "giftName": "55吋電視",
+      "percent": 10
+    },
+    {
+      "id": 1235,
+      "eventId": 1234567,
+      "giftName": "娃娃",
+      "percent": 10
+    },
+    {
+      "id": 1236,
+      "eventId": 1234567,
+      "giftName": "飲料杯",
+      "percent": 10
+    },
+    {
+      "id": 1237,
+      "eventId": 1234567,
+      "giftName": "杯墊",
+      "percent": 10
+    },
+    {
+      "id": 1238,
+      "eventId": 1234567,
+      "giftName": "行動電源",
+      "percent": 10
+    },
+    {
+      "id": 1239,
+      "eventId": 1234567,
+      "giftName": "印表機",
+      "percent": 10
+    },
+    {
+      "id": 1240,
+      "eventId": 1234567,
+      "giftName": "墨水",
+      "percent": 10
+    },
     {
       "id": 10001,
       "eventId": 12,

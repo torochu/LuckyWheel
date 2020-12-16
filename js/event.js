@@ -35,11 +35,13 @@ let selector = {};
 let eventWinners = [];
 let historyObj = {};
 
+const eventID = window.location.search.split('=')[1];
+
 // FUNCTION: 倒數計時
 let timer = (now, countDownDate) => {
   let x = setInterval(function () {
     // Get today's date and time
-    let now = new Date().getTime();
+    // let now = new Date().getTime();
 
     // Find the distance between now and the count down date
     let distance = countDownDate - now;
@@ -53,14 +55,14 @@ let timer = (now, countDownDate) => {
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById('app').innerHTML =
+    document.getElementById('countdown').innerHTML =
       days + 'D：' + hours + 'H：' + minutes + 'M：' + seconds + 'S ';
 
     // If the count down is finished, write some text
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById('demo').innerHTML = 'EXPIRED';
-    }
+    // if (distance < 0) {
+    // clearInterval(x);
+    // document.getElementById('demo').innerHTML = 'EXPIRED';
+    // }
   }, 1000);
 };
 
@@ -130,6 +132,14 @@ let renderWheel = () => {
           沒有禮物了....
         </div>
       `;
+
+      localStorage.setItem(
+        eventID,
+        JSON.stringify({
+          count: 0,
+        })
+      );
+
       break;
     case 1:
       console.log('只剩一個禮物');
@@ -303,6 +313,50 @@ let renderEventHistory = () => {
   winnerList.innerHTML = historyTempalte;
 };
 
+let loadingAnimation = () => {
+  console.log('fly');
+  const rocketOff = document.querySelector('.rocketOff');
+  const rocketOn = document.querySelector('.rocketOn');
+  rocketOff.classList.add('d-none');
+  rocketOn.classList.remove('d-none');
+  rocketOn.classList.add('rocket_fly');
+  setTimeout(() => {
+    const loadingEle = document.querySelector('.isLoading');
+    loadingEle.classList.add('d-none');
+  }, 3000);
+};
+
+let startLoading = () => {
+  let count = 0;
+  if (localStorage.getItem(eventID) === null) {
+    console.log('找不到 eventID local storage');
+    let obj = {
+      count: 0,
+    };
+    localStorage.setItem(eventID, JSON.stringify(obj));
+    loadingAnimation();
+  } else {
+    console.log('eventID local storage存在');
+    let eventStorage = JSON.parse(localStorage.getItem(eventID));
+    count = eventStorage.count;
+    // 判斷是否為 0
+    console.log('次數：', eventStorage.count);
+    if (eventStorage.count === 0) {
+      loadingAnimation();
+    } else {
+      const loadingEle = document.querySelector('.isLoading');
+      loadingEle.classList.add('d-none');
+    }
+  }
+
+  localStorage.setItem(
+    eventID,
+    JSON.stringify({
+      count: count + 1,
+    })
+  );
+};
+
 async function getData(eventID) {
   try {
     await fetchEventGifts(eventID).then((res) => (eventGifts = res.data));
@@ -311,8 +365,9 @@ async function getData(eventID) {
     console.log('目前禮品數量：', eventGifts.length);
     console.log('目前參與者人數: ', eventMembers.length);
     console.log('得獎資料: ', eventWinners.length);
-    renderWheel();
-    renderEventHistory();
+    await renderWheel();
+    await renderEventHistory();
+    await startLoading();
   } catch (err) {
     console.log(err);
   }
@@ -322,13 +377,35 @@ rotateBtn.addEventListener('click', spin);
 pie.addEventListener('transitionend', afterTransition);
 nextPlayer.addEventListener('click', nextRound);
 
-(function () {
-  const eventID = window.location.search.split('=')[1];
-  // const obj = { id: 1234456677, name: "test" };
-  // const postpost = createEventHistory(obj).then((res) => {
-  // console.log("response", res);
-  // });
-  // console.log(isEmptyObj(historyObj));
+(function init() {
+  let count = 0;
+  if (localStorage.getItem(eventID) === null) {
+    console.log('找不到 eventID local storage');
+    let obj = {
+      count: 0,
+    };
+    localStorage.setItem(eventID, JSON.stringify(obj));
+    loadingAnimation();
+  } else {
+    console.log('eventID local storage存在');
+    let eventStorage = JSON.parse(localStorage.getItem(eventID));
+    count = eventStorage.count;
+    // 判斷是否為 0
+    console.log('次數：', eventStorage.count);
+    if (eventStorage.count === 0) {
+      loadingAnimation();
+    } else {
+      const loadingEle = document.querySelector('.isLoading');
+      loadingEle.classList.add('d-none');
+    }
+  }
+
+  // localStorage.setItem(
+  //   eventID,
+  //   JSON.stringify({
+  //     count: count + 1,
+  //   })
+  // );
 
   fetchEvent(eventID).then((res) => {
     if (res.status === 200) {

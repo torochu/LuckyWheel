@@ -1,5 +1,6 @@
 .d-none {
-  display: none;
+  display: none !important;
+  transition: all 0.5 ease-in;
 }
 
 img {
@@ -13,6 +14,82 @@ body#app {
   background-color: #c52032;
 
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.isLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 2000px;
+  background: #c52032 url('../img/TopWord.png') no-repeat top left;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  z-index: 100000;
+}
+
+.rocketElements {
+  /* position: absolute;
+  top: 40%;
+  right: 60%; */
+  /* width: 200px;
+  height: 200px;
+  border: 1px solid #fff;
+  background-color: #ddd; */
+}
+
+/* .doll {
+  margin: 20px;
+  position: fixed;
+  right: 70%;
+  bottom: 25%;
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3));
+} */
+
+.dollGifts {
+  margin: 20px;
+  position: fixed;
+  right: 20%;
+  bottom: 20%;
+  transform: scale(0.8);
+  /* filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3)); */
+}
+
+.rocketOff,
+.rocketOn {
+  margin: 20px;
+  position: fixed;
+  right: 35%;
+  bottom: 0%;
+  transform: rotate(0deg) scale(0.5);
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3));
+}
+
+.rocket_fly {
+  animation: rocket_fly 1.8s forwards linear;
+}
+
+/* .rocketGifts {
+  margin: 20px;
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+  transform: scale(0.7);
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3));
+} */
+
+.countdown {
+  align-self: center;
+  width: 150px;
+  height: 50px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main.header {
@@ -312,7 +389,29 @@ footer .container .winners {
   }
 }
 
+/* @media (max-width: 800px) {
+  .doll {
+    margin: 20px;
+    position: fixed;
+    top: 40%;
+    right: 60%;
+  }
+
+  .rocket {
+    margin: 20px;
+    position: fixed;
+    top: 23%;
+    right: 5%;
+    transform: rotate(0deg) scale(0.7);
+  }
+} */
+
 @media (max-width: 550px) {
+  /* .rocketElements img {
+    margin: 0 20px;
+    max-width: 30%;
+    height: auto;
+  } */
   .pie {
     width: 20em;
     height: 20em;
