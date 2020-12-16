@@ -1,5 +1,42 @@
 {
-  "eventHistory": [],
+  "eventHistory": [
+    {
+      "id": 1608114710529,
+      "eventId": 1234567,
+      "memberName": "Davie",
+      "giftName": "PlayStation 4"
+    },
+    {
+      "id": 1608114780351,
+      "eventId": 1234567,
+      "memberName": "Sharry",
+      "giftName": "杯墊"
+    },
+    {
+      "id": 1608115002591,
+      "eventId": 1234567,
+      "memberName": "Irene",
+      "giftName": "墨水"
+    },
+    {
+      "id": 1608115015454,
+      "eventId": 1234567,
+      "memberName": "Eddie",
+      "giftName": "PlayStation 5"
+    },
+    {
+      "id": 1608115042554,
+      "eventId": 1234567,
+      "memberName": "Aki",
+      "giftName": "娃娃"
+    },
+    {
+      "id": 1608115066699,
+      "eventId": 1234567,
+      "memberName": "Hugo",
+      "giftName": "MacBook Pro"
+    }
+  ],
   "events": [
     {
       "id": 1234567,
@@ -107,44 +144,14 @@
       "memberName": "Andy"
     },
     {
-      "id": 123452,
-      "eventId": 1234567,
-      "memberName": "Eddie"
-    },
-    {
       "id": 123453,
       "eventId": 1234567,
       "memberName": "Mio"
     },
     {
-      "id": 123454,
-      "eventId": 1234567,
-      "memberName": "Aki"
-    },
-    {
-      "id": 123455,
-      "eventId": 1234567,
-      "memberName": "Irene"
-    },
-    {
-      "id": 123456,
-      "eventId": 1234567,
-      "memberName": "Sharry"
-    },
-    {
-      "id": 123457,
-      "eventId": 1234567,
-      "memberName": "Davie"
-    },
-    {
       "id": 123458,
       "eventId": 1234567,
       "memberName": "Danny"
-    },
-    {
-      "id": 123459,
-      "eventId": 1234567,
-      "memberName": "Hugo"
     },
     {
       "id": 123460,
@@ -199,45 +206,15 @@
   ],
   "gifts": [
     {
-      "id": 1231,
-      "eventId": 1234567,
-      "giftName": "PlayStation 5",
-      "percent": 10
-    },
-    {
-      "id": 1232,
-      "eventId": 1234567,
-      "giftName": "MacBook Pro",
-      "percent": 10
-    },
-    {
-      "id": 1233,
-      "eventId": 1234567,
-      "giftName": "PlayStation 4",
-      "percent": 10
-    },
-    {
       "id": 1234,
       "eventId": 1234567,
       "giftName": "55吋電視",
       "percent": 10
     },
     {
-      "id": 1235,
-      "eventId": 1234567,
-      "giftName": "娃娃",
-      "percent": 10
-    },
-    {
       "id": 1236,
       "eventId": 1234567,
       "giftName": "飲料杯",
-      "percent": 10
-    },
-    {
-      "id": 1237,
-      "eventId": 1234567,
-      "giftName": "杯墊",
       "percent": 10
     },
     {
@@ -250,12 +227,6 @@
       "id": 1239,
       "eventId": 1234567,
       "giftName": "印表機",
-      "percent": 10
-    },
-    {
-      "id": 1240,
-      "eventId": 1234567,
-      "giftName": "墨水",
       "percent": 10
     },
     {

@@ -139,7 +139,6 @@ let renderWheel = () => {
           count: 0,
         })
       );
-
       break;
     case 1:
       console.log('只剩一個禮物');
@@ -151,6 +150,7 @@ let renderWheel = () => {
         ></div>`;
         rotateAngle -= itemAngle; // 旋轉 - angle
       });
+
       break;
     case 2:
       console.log('只剩 2 個禮物');
@@ -229,6 +229,14 @@ async function modifyList(obj) {
 // FUNCTION: 下一回合
 let nextRound = () => {
   console.log('next round');
+
+  localStorage.setItem(
+    eventID,
+    JSON.stringify({
+      count: eventGifts.length - 1,
+    })
+  );
+
   const item = {
     event,
     gift: selectedGift,
@@ -319,15 +327,17 @@ let loadingAnimation = () => {
   const rocketOn = document.querySelector('.rocketOn');
   rocketOff.classList.add('d-none');
   rocketOn.classList.remove('d-none');
+  // debugger;
   rocketOn.classList.add('rocket_fly');
   setTimeout(() => {
     const loadingEle = document.querySelector('.isLoading');
     loadingEle.classList.add('d-none');
+    // debugger;
   }, 3000);
 };
 
 let startLoading = () => {
-  let count = 0;
+  // let count = 0;
   if (localStorage.getItem(eventID) === null) {
     console.log('找不到 eventID local storage');
     let obj = {
@@ -338,7 +348,7 @@ let startLoading = () => {
   } else {
     console.log('eventID local storage存在');
     let eventStorage = JSON.parse(localStorage.getItem(eventID));
-    count = eventStorage.count;
+    // count = eventStorage.count;
     // 判斷是否為 0
     console.log('次數：', eventStorage.count);
     if (eventStorage.count === 0) {
@@ -346,15 +356,9 @@ let startLoading = () => {
     } else {
       const loadingEle = document.querySelector('.isLoading');
       loadingEle.classList.add('d-none');
+      // debugger;
     }
   }
-
-  localStorage.setItem(
-    eventID,
-    JSON.stringify({
-      count: count + 1,
-    })
-  );
 };
 
 async function getData(eventID) {
@@ -378,26 +382,20 @@ pie.addEventListener('transitionend', afterTransition);
 nextPlayer.addEventListener('click', nextRound);
 
 (function init() {
-  let count = 0;
-  if (localStorage.getItem(eventID) === null) {
-    console.log('找不到 eventID local storage');
-    let obj = {
-      count: 0,
-    };
-    localStorage.setItem(eventID, JSON.stringify(obj));
-    loadingAnimation();
+  // let count = 0;
+  console.log('getitem:', localStorage.getItem(eventID).count);
+  console.log('getitem:', JSON.parse(localStorage.getItem(eventID)).count);
+
+  if (
+    JSON.parse(localStorage.getItem(eventID)) === 0 &&
+    localStorage.getItem(eventID) === null
+  ) {
+    // debugger;
+    console.log('local storage  不等於 0');
+    const loadingEle = document.querySelector('.isLoading');
+    loadingEle.classList.add('d-none');
   } else {
-    console.log('eventID local storage存在');
-    let eventStorage = JSON.parse(localStorage.getItem(eventID));
-    count = eventStorage.count;
-    // 判斷是否為 0
-    console.log('次數：', eventStorage.count);
-    if (eventStorage.count === 0) {
-      loadingAnimation();
-    } else {
-      const loadingEle = document.querySelector('.isLoading');
-      loadingEle.classList.add('d-none');
-    }
+    console.log('fefe');
   }
 
   // localStorage.setItem(
