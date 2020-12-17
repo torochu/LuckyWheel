@@ -40,10 +40,6 @@ const eventID = window.location.search.split("=")[1];
 // FUNCTION: 倒數計時
 let timer = (now, countDownDate) => {
   let x = setInterval(function () {
-    // Get today's date and time
-    // let now = new Date().getTime();
-
-    // Find the distance between now and the count down date
     let distance = countDownDate - now;
 
     // Time calculations for days, hours, minutes and seconds
@@ -57,12 +53,6 @@ let timer = (now, countDownDate) => {
     // Display the result in the element with id="demo"
     document.getElementById("countdown").innerHTML =
       days + "D：" + hours + "H：" + minutes + "M：" + seconds + "S ";
-
-    // If the count down is finished, write some text
-    // if (distance < 0) {
-    // clearInterval(x);
-    // document.getElementById('demo').innerHTML = 'EXPIRED';
-    // }
   }, 1000);
 };
 
@@ -169,10 +159,7 @@ let renderWheel = () => {
         rotateAngle -= itemAngle; // 旋轉 - angle
       });
       break;
-    // case 3:
-    //   console.log("只剩 3 個禮物");
 
-    //   break;
     default:
       eventGifts.forEach((item, index) => {
         textTemplate += assembleTextBox(item, rotateAngle, itemAngle);
@@ -197,17 +184,12 @@ let renderWheel = () => {
 async function modifyList(obj) {
   const { event, gift, member } = obj;
   historyObj = {
-    // ...event,
-    // ...selectedGift,
-    // ...selector,
     id: Date.now(),
     eventId: event.id,
     memberName: selector.memberName,
     giftName: selectedGift.giftName,
-    // eventId: event.id,
-    // giftId: selectedGift.id,
-    // memberId: selector.id,
   };
+
   console.log("historyObj:", historyObj);
   // debugger;
   try {
@@ -244,15 +226,6 @@ let nextRound = () => {
   };
   console.log(item);
   // debugger;
-  // historyObj = {
-  //   ...event,
-  //   ...selectedGift,
-  //   ...selector,
-  //   id: Date.now(),
-  //   eventId: event.id,
-  //   giftId: selectedGift.id,
-  //   memberId: selector.id,
-  // };
 
   // 新增得獎者資訊至 eventHistory
   // createEventHistory(historyObj);
@@ -282,25 +255,12 @@ let spin = (e) => {
 };
 
 let afterTransition = (e) => {
-  // console.log("e: ", e);
   actualDegree = goToAngle % 360; // 取得餘數, 真實的degree 中獎角度
-  // console.log("actual degree: ", actualDegree);
-  // pie.style.transform = `rotate(${actualDegree}deg)`
   const selectedSlice = document.querySelector(
     `[data-gift="${selectedGift.id}"]`
   );
 
-  // 把抽中的 slice 換顏色
-  // switch (eventGifts.length) {
-  //   case 1:
-  //     pie.classList.add('selected');
-  //     break;
-  //   case 2:
-  //     break;
-  //   default:
   selectedSlice.classList.add("selected");
-  //     break;
-  // }
 
   // 把獎項放到 DOM
   prizeWon.textContent = selectedGift.giftName;
@@ -382,28 +342,24 @@ pie.addEventListener("transitionend", afterTransition);
 nextPlayer.addEventListener("click", nextRound);
 
 (function () {
-  // let count = 0;
-  // console.log('getitem:', localStorage.getItem(eventID).count);
-  // console.log('getitem:', JSON.parse(localStorage.getItem(eventID)).count);
+  const loadingEle = document.querySelector(".isLoading");
+  const rocketOff = document.querySelector(".rocketOff");
+  const rocketOn = document.querySelector(".rocketOn");
+  const dollGifts = document.querySelector(".dollGifts");
 
   if (
     JSON.parse(localStorage.getItem(eventID)) === 0 &&
     localStorage.getItem(eventID) === null
   ) {
     // debugger;
-    console.log("local storage  不等於 0");
-    const loadingEle = document.querySelector(".isLoading");
-    loadingEle.classList.add("d-none");
   } else {
-    console.log("fefe");
-  }
+    console.log("local storage  不等於 0");
 
-  // localStorage.setItem(
-  //   eventID,
-  //   JSON.stringify({
-  //     count: count + 1,
-  //   })
-  // );
+    dollGifts.classList.add("d-none");
+    rocketOff.classList.add("d-none");
+    rocketOn.classList.add("d-none");
+    loadingEle.classList.add("d-none");
+  }
 
   fetchEvent(eventID).then((res) => {
     if (res.status === 200) {
