@@ -7,43 +7,54 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-  <title>Document</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.js'></script>
+
+  <title>活動列表</title>
   <link
     rel="stylesheet"
-    href="style.css"
+    href="./css/reset.css"
   >
   <link
-    rel='stylesheet'
-    href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css'
-  />
+    rel="stylesheet"
+    href="./css/event_list.css"
+  >
 </head>
-<!-- https://mtwmt.github.io/JSBOSS/9f/ -->
 
 <body>
-  <div class="conainer">
-    <i class="fas fa-location-arrow fa-3x"></i>
-    <ul
-      id="pie"
-      class="pie"
-    >
-      <!-- <li class="slice slice-one"></li>
-        <li class="slice slice-two"></li>
-        <li class="slice slice-three"></li>
-        <li class="slice slice-four"></li>
-        <li class="slice slice-five"></li>
-        <li class="slice slice-six"></li>
-        <li class="slice slice-seven"></li>
-        <li class="slice slice-eight"></li>
-        <li class="slice slice-nine"></li>
-        <li class="slice slice-ten"></li>
-        <li class="slice slice-eleven"></li>
-        <li class="slice slice-twelve"></li> -->
-    </ul>
-    <button class="startBtn">開始</button>
-  </div>
+  <main class="container">
+    <div class="inProgress">
+      <div class="titleWrapper">
+        <h2></h2>
+      </div>
+      <div
+        id="inProgress"
+        class="cards"
+      ></div>
+    </div>
 
+    <div class="notAvailable">
+      <h2 class="titleWrapper"></h2>
+      <div
+        id="notAvailable"
+        class="cards"
+      ></div>
+    </div>
 
-  <script src="app.js"></script>
+    <div class="ended">
+      <div class="titleWrapper">
+        <h2></h2>
+      </div>
+
+      <div
+        id="ended"
+        class="cards"
+      ></div>
+    </div>
+  </main>
+  <script
+    type="module"
+    src="./js/event_list.js"
+  ></script>
 </body>
 
 </html>

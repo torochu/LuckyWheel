@@ -3,6 +3,10 @@
   transition: all 0.5 ease-in;
 }
 
+.disable-scroll {
+  overflow-y: hidden;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -13,7 +17,7 @@ body#app {
   max-height: 100vh;
   background-color: #c52032;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arial Black', Helvetica, sans-serif;
   position: relative;
 }
 
@@ -22,15 +26,38 @@ body#app {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 2000px;
+  height: 2500px;
   background: #c52032 url('../img/TopWord.png') no-repeat top left;
 
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 
   z-index: 100000;
+}
+
+.countdownWrapper {
+  position: fixed;
+  left: 50%;
+  top: 25%;
+}
+
+.countdownWrapper .countdown {
+  position: relative;
+  left: -50%;
+  color: #fff;
+  font-size: 40px;
+}
+
+.countdownWrapper .countdownRocketDoll {
+  margin: 20px;
+  position: relative;
+  left: -60%;
+  /* position: fixed;
+  right: 11%;
+  bottom: 13%; */
+  transform: scale(0.7);
 }
 
 .rocketElements {
@@ -54,7 +81,7 @@ body#app {
 .dollGifts {
   margin: 20px;
   position: fixed;
-  right: 20%;
+  right: 16%;
   bottom: 20%;
   transform: scale(0.8);
   /* filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3)); */
@@ -70,6 +97,25 @@ body#app {
   filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3));
 }
 
+.countdownDollGifts {
+  margin: 20px;
+  position: fixed;
+  /* right: 11%;
+  bottom: 13%; */
+  top: 0;
+  left: 0;
+  transform: scale(0.5);
+}
+/* .countdownRocketOff {
+  margin: 20px;
+  position: fixed;
+  right: 35%;
+  bottom: 0%;
+  transform: rotate(0deg) scale(0.35);
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3));
+}
+*/
+
 .rocket_fly {
   animation: rocket_fly 1.8s forwards linear;
 }
@@ -83,23 +129,8 @@ body#app {
   filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3));
 } */
 
-.countdown {
-  align-self: center;
-  width: 150px;
-  height: 50px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 main.header {
   background: #c52032 url('../img/TopWord.png') no-repeat top left;
-}
-
-.countdown {
-  width: 100%;
-  height: 100%;
-  /* background-color: rgb(121, 114, 100); */
 }
 
 main .container {
@@ -375,6 +406,11 @@ footer .container .winners {
   flex-direction: column;
 }
 
+footer .container .winners h2 {
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+
 .winner_list li {
   margin: 10px 0;
 }
@@ -387,15 +423,35 @@ footer .container .winners {
   .arrow {
     margin: 40px 0 40px 0;
   }
-}
 
-/* @media (max-width: 800px) {
-  .doll {
+  .countdownWrapper .countdown {
+    left: -25%;
+    font-size: 20px;
+  }
+
+  .countdownWrapper .countdownRocketDoll {
+    /* margin: 20px; */
+    /* position: relative; */
+    left: -50%;
+    /* position: fixed;
+    right: 11%;
+    bottom: 13%; */
+    /* transform: scale(0.7); */
+  }
+
+}
+/* 
+@media (max-width: 900px) {
+  .dollGifts {
     margin: 20px;
     position: fixed;
-    top: 40%;
-    right: 60%;
-  }
+    right: 10%;
+    bottom: 20%;
+    transform: scale(0.6);
+    /* filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.3)); */
+  } */
+
+  /* 
 
   .rocket {
     margin: 20px;
@@ -403,8 +459,8 @@ footer .container .winners {
     top: 23%;
     right: 5%;
     transform: rotate(0deg) scale(0.7);
-  }
-} */
+  } */
+}
 
 @media (max-width: 550px) {
   /* .rocketElements img {

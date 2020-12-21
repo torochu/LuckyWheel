@@ -3,4 +3,6 @@
   "liveServer.settings.ignoreFiles":[
     "db.json"   // 加上
   ],
+  "editor.fontFamily": "Monoid, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 14,
 }

@@ -6,26 +6,33 @@ import {
   removeEventMember,
   createEventHistory,
   fetchEventHistory,
-} from "./api.js";
+} from './api.js';
+
+import {
+  checkEventState,
+  checkLocalStorageCount,
+  setLocalStorageCount,
+  clock,
+} from './util.js';
 // import timer from './timer.js'
 
-const colors2 = ["#ffd15b", "#ffe99c"];
-const colors = ["#ffd15b", "#ffe99c", "#ffbe5b"];
+const colors2 = ['#ffd15b', '#ffe99c'];
+const colors = ['#ffd15b', '#ffe99c', '#ffbe5b'];
 
-const pie = document.getElementById("pie");
-const giftsWrapper = document.querySelector("#giftsWrapper");
-const textsWrapper = document.querySelector("#textsWrapper");
-const prizeWon = document.querySelector("#prizeWon");
-const player = document.getElementById("player");
-const heading = document.querySelector(".heading");
-const rotateBtn = document.getElementById("rotateBtn");
-const nextPlayer = document.getElementById("nextPlayer");
-const winnerList = document.getElementById("winner_list");
+const pie = document.getElementById('pie');
+const giftsWrapper = document.querySelector('#giftsWrapper');
+const textsWrapper = document.querySelector('#textsWrapper');
+const prizeWon = document.querySelector('#prizeWon');
+const player = document.getElementById('player');
+const heading = document.querySelector('.heading');
+const rotateBtn = document.getElementById('rotateBtn');
+const nextPlayer = document.getElementById('nextPlayer');
+const winnerList = document.getElementById('winner_list');
 
 let itemAngle = 0; // 每個扇型佔有多少角度
 let startAngle = 0; // 起始角度
 let goToAngle = 0; // 終點角度
-let actualDegree; // 中獎角度
+let actualDegree = 0; // 中獎角度
 
 let event = {};
 let eventGifts = [];
@@ -35,30 +42,33 @@ let selector = {};
 let eventWinners = [];
 let historyObj = {};
 
-const eventID = window.location.search.split("=")[1];
+const eventID = window.location.search.split('=')[1];
 
 // FUNCTION: 倒數計時
-let timer = (now, countDownDate) => {
+let timer = (countDownDate) => {
   let x = setInterval(function () {
-    let distance = countDownDate - now;
+    let now = new Date().getTime();
+    let { days, hours, minutes, seconds } = clock(now, countDownDate);
 
-    // Time calculations for days, hours, minutes and seconds
-    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    let hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // const rocketOff = document.getElementById('rocketOff');
+    // const dollGifts = document.getElementById('dollGifts');
 
-    // Display the result in the element with id="demo"
-    document.getElementById("countdown").innerHTML =
-      days + "D：" + hours + "H：" + minutes + "M：" + seconds + "S ";
+    // rocketOff.classList.remove('d-none');
+    // rocketOff.classList.add('countdownRocketOff');
+    // dollGifts.classList.remove('d-none');
+    // dollGifts.classList.add('countdownDollGifts');
+
+    const rocketDolls = document.getElementById('countdownRocketDoll');
+    rocketDolls.classList.remove('d-none');
+
+    document.getElementById('countdown').innerHTML =
+      days + 'D：' + hours + 'H：' + minutes + 'M：' + seconds + 'S ';
   }, 1000);
 };
 
-let isEmptyObj = (obj) => {
-  return Object.keys(obj).length === 0;
-};
+// let isEmptyObj = (obj) => {
+//   return Object.keys(obj).length === 0;
+// };
 
 // FUNCTION: 打亂獎項 order
 let shuffle = function (a, b) {
@@ -89,11 +99,11 @@ let assemblePieSlice = (item, idx, rotateAngle, skewedAngle, oddEven) => {
 };
 
 let renderWheel = () => {
-  console.log("渲染轉盤 開始");
+  console.log('渲染轉盤 開始');
 
   // 隨機挑選玩家
   selector = eventMembers[Math.floor(Math.random() * eventMembers.length)];
-  player.textContent = eventMembers.length !== 0 ? selector.memberName : "";
+  player.textContent = eventMembers.length !== 0 ? selector.memberName : '';
   const oddEven = eventGifts.length % 3 === 1 ? colors2 : colors;
   let gifts = eventGifts.sort(shuffle); // 打亂排序的獎項 array
   // console.log("判斷雙單數", oddEven);
@@ -102,8 +112,8 @@ let renderWheel = () => {
   let skewedAngle = -90 + itemAngle;
   // console.log("skewedAngle: ", skewedAngle);
   let rotateAngle = 0; // 旋轉從 0 開始
-  let pieTemplate = "";
-  let textTemplate = "";
+  let pieTemplate = '';
+  let textTemplate = '';
 
   switch (eventGifts.length) {
     case 0:
@@ -131,7 +141,7 @@ let renderWheel = () => {
       );
       break;
     case 1:
-      console.log("只剩一個禮物");
+      console.log('只剩一個禮物');
       eventGifts.forEach((item, index) => {
         textTemplate += assembleTextBox(item, rotateAngle, itemAngle);
 
@@ -143,7 +153,7 @@ let renderWheel = () => {
 
       break;
     case 2:
-      console.log("只剩 2 個禮物");
+      console.log('只剩 2 個禮物');
       eventGifts.forEach((item, index) => {
         textTemplate += assembleTextBox(item, rotateAngle, itemAngle);
 
@@ -190,7 +200,7 @@ async function modifyList(obj) {
     giftName: selectedGift.giftName,
   };
 
-  console.log("historyObj:", historyObj);
+  console.log('historyObj:', historyObj);
   // debugger;
   try {
     // debugger;
@@ -201,30 +211,26 @@ async function modifyList(obj) {
 
     // 新增得獎者資訊至 eventHistory
     await createEventHistory(historyObj);
+    await init();
   } catch (err) {
-    console.log("錯誤：", err);
+    console.log('錯誤：', err);
   }
-
-  console.log(historyObj);
 }
 
 // FUNCTION: 下一回合
 let nextRound = () => {
-  console.log("next round");
+  console.log('點擊 下一位，next round');
 
-  localStorage.setItem(
-    eventID,
-    JSON.stringify({
-      count: eventGifts.length - 1,
-    })
-  );
+  // 設定 local storage count
+  setLocalStorageCount(eventID, eventGifts.length - 1);
 
+  // 組合
   const item = {
     event,
     gift: selectedGift,
     member: selector,
   };
-  console.log(item);
+  console.log('組合item object', item);
   // debugger;
 
   // 新增得獎者資訊至 eventHistory
@@ -234,24 +240,39 @@ let nextRound = () => {
   // 清空被選取的 人＆禮物
   selector = {};
   selectedGift = {};
+
+  rotateBtn.disabled = false;
+  rotateBtn.classList.remove('d-none');
+  nextPlayer.classList.add('d-none');
+  prizeWon.innerHTML = '&nbsp;';
 };
 
 // FUNCTION: 轉盤開始旋轉
 let spin = (e) => {
   rotateBtn.disabled = true;
-  console.log("開始旋轉");
+  console.log('點擊 ＧＯ 按鈕，開始旋轉');
   let rndDrawIndex = Math.floor(Math.random() * eventGifts.length);
 
-  // console.log("randomIndex: ", rndDrawIndex);
+  // console.log('startAngle', startAngle);
+  // console.log('randomIndex: ', rndDrawIndex);
+  // console.log('itemAngle', itemAngle);
+  // console.log('actualDegree', actualDegree);
+  console.table({
+    startAngle: startAngle,
+    randomIndex: rndDrawIndex,
+    itemAngle: itemAngle,
+    actualDegree: actualDegree,
+  });
   // console.log("random member: ", selector);
 
   selectedGift = eventGifts[rndDrawIndex];
   // console.log("抽出得獎項： ", selectedGift);
 
+  // 上一回的角度 + (禮物index * 扇型的角度 + 360度 * 4圈)
   goToAngle = startAngle + (rndDrawIndex * itemAngle + 360 * 4);
-  pie.style.transition = "all 4s ease-out";
+  pie.style.transition = 'all 4s ease-out';
   pie.style.transform = `rotate(${goToAngle}deg)`;
-  // console.log("goAngle", goToAngle);
+  console.log('goAngle', goToAngle);
 };
 
 let afterTransition = (e) => {
@@ -259,66 +280,51 @@ let afterTransition = (e) => {
   const selectedSlice = document.querySelector(
     `[data-gift="${selectedGift.id}"]`
   );
+  console.log('轉盤停止時角度：', actualDegree);
 
-  selectedSlice.classList.add("selected");
+  selectedSlice.classList.add('selected');
 
   // 把獎項放到 DOM
   prizeWon.textContent = selectedGift.giftName;
 
   // 把 ＧＯ 按鈕置換成 下一位 按鈕
   setTimeout(() => {
-    rotateBtn.classList.add("d-none");
-    nextPlayer.classList.remove("d-none");
+    rotateBtn.classList.add('d-none');
+    nextPlayer.classList.remove('d-none');
   }, 2000);
+
+  // 把 startAngle = actualDegree
+  startAngle = goToAngle - actualDegree;
 };
 
 let renderEventHistory = () => {
-  let historyTempalte = "";
+  let historyTempalte = '';
   for (let item of eventWinners) {
-    console.log(item);
+    // console.log(item);
     historyTempalte += `<li>${item.memberName} 抽到了 ${item.giftName}</li>`;
   }
   winnerList.innerHTML = historyTempalte;
 };
 
 let loadingAnimation = () => {
-  console.log("fly");
-  const rocketOff = document.querySelector(".rocketOff");
-  const rocketOn = document.querySelector(".rocketOn");
-  rocketOff.classList.add("d-none");
-  rocketOn.classList.remove("d-none");
+  console.log('fly');
+  const rocketOff = document.querySelector('.rocketOff');
+  const rocketOn = document.querySelector('.rocketOn');
+  rocketOff.classList.add('d-none');
+  rocketOn.classList.remove('d-none');
   // debugger;
-  rocketOn.classList.add("rocket_fly");
+  rocketOn.classList.add('rocket_fly');
   setTimeout(() => {
-    const loadingEle = document.querySelector(".isLoading");
-    loadingEle.classList.add("d-none");
+    const loadingEle = document.querySelector('.isLoading');
+    loadingEle.classList.add('d-none');
     // debugger;
   }, 3000);
 };
 
+// 起始動畫
 let startLoading = () => {
-  // let count = 0;
-  if (localStorage.getItem(eventID) === null) {
-    console.log("找不到 eventID local storage");
-    let obj = {
-      count: 0,
-    };
-    localStorage.setItem(eventID, JSON.stringify(obj));
-    loadingAnimation();
-  } else {
-    console.log("eventID local storage存在");
-    let eventStorage = JSON.parse(localStorage.getItem(eventID));
-    // count = eventStorage.count;
-    // 判斷是否為 0
-    console.log("次數：", eventStorage.count);
-    if (eventStorage.count === 0) {
-      loadingAnimation();
-    } else {
-      const loadingEle = document.querySelector(".isLoading");
-      loadingEle.classList.add("d-none");
-      // debugger;
-    }
-  }
+  console.log('loadingAnimation()');
+  loadingAnimation();
 };
 
 async function getData(eventID) {
@@ -326,56 +332,87 @@ async function getData(eventID) {
     await fetchEventGifts(eventID).then((res) => (eventGifts = res.data));
     await fetchEventMembers(eventID).then((res) => (eventMembers = res.data));
     await fetchEventHistory(eventID).then((res) => (eventWinners = res.data));
-    console.log("目前禮品數量：", eventGifts.length);
-    console.log("目前參與者人數: ", eventMembers.length);
-    console.log("得獎資料: ", eventWinners.length);
+    console.log('目前禮品數量：', eventGifts.length);
+    console.log('目前參與者人數: ', eventMembers.length);
+    console.log('得獎資料: ', eventWinners.length);
     await renderWheel();
     await renderEventHistory();
-    await startLoading();
+    // await startLoading();
   } catch (err) {
     console.log(err);
   }
 }
 
-rotateBtn.addEventListener("click", spin);
-pie.addEventListener("transitionend", afterTransition);
-nextPlayer.addEventListener("click", nextRound);
+async function getEventAndCheck(eventID, now) {
+  try {
+    await fetchEvent(eventID)
+      .then((res) => {
+        // console.log(res);
+        return (event = res.data);
+      })
+      .then((res) => {
+        const eventState = checkEventState(res, now);
+        const body = document.getElementById('app');
+        switch (eventState) {
+          case 'not-available':
+            console.log('活動倒數');
 
-(function () {
-  const loadingEle = document.querySelector(".isLoading");
-  const rocketOff = document.querySelector(".rocketOff");
-  const rocketOn = document.querySelector(".rocketOn");
-  const dollGifts = document.querySelector(".dollGifts");
+            body.classList.add('disable-scroll');
+            timer(Date.parse(event.start));
+            break;
+          case 'ended':
+            console.log('活動已經結束');
 
-  if (
-    JSON.parse(localStorage.getItem(eventID)) === 0 &&
-    localStorage.getItem(eventID) === null
-  ) {
-    // debugger;
-  } else {
-    console.log("local storage  不等於 0");
+            body.classList.add('disable-scroll');
+            break;
+          case 'in-progress':
+            console.log('活動開始');
+            console.log('EVENT ID: ', eventID);
 
-    dollGifts.classList.add("d-none");
-    rocketOff.classList.add("d-none");
-    rocketOn.classList.add("d-none");
-    loadingEle.classList.add("d-none");
+            body.classList.remove('disable-scroll');
+            // 檢查 localStorage count值, true 跑動畫
+            const loadingEle = document.querySelector('.isLoading');
+            const rocketOff = document.querySelector('.rocketOff');
+            const rocketOn = document.querySelector('.rocketOn');
+            const dollGifts = document.querySelector('.dollGifts');
+            if (
+              checkLocalStorageCount(
+                eventID,
+                loadingEle,
+                dollGifts,
+                rocketOff,
+                rocketOn
+              )
+            ) {
+              loadingAnimation();
+            }
+
+            getData(eventID);
+            break;
+          default:
+            console.log('錯誤：找不到此活動');
+        }
+      });
+    // return await checkEventState(event, now);
+  } catch (error) {
+    console.error(error);
   }
+}
 
-  fetchEvent(eventID).then((res) => {
-    if (res.status === 200) {
-      event = { ...res.data };
-      heading.textContent = event.name;
-      // console.log("fetchEvent", res);
-      let now = new Date().getTime();
-      if (now > Date.parse(event.start)) {
-        console.log("活動開始");
-        getData(eventID);
-      } else if (now > Date.parse(event.end)) {
-        console.log("活動已經結束");
-      } else {
-        console.log("活動倒數");
-        timer(now, Date.parse(event.start));
-      }
-    }
-  });
-})();
+function init() {
+  // const loadingEle = document.querySelector('.isLoading');
+  // const rocketOff = document.querySelector('.rocketOff');
+  // const rocketOn = document.querySelector('.rocketOn');
+  // const dollGifts = document.querySelector('.dollGifts');
+
+  // 檢查活動時間狀態
+
+  let now = new Date().getTime();
+  getEventAndCheck(eventID, now);
+  // // const eventState = checkEventState(eventID, now);
+}
+init();
+
+rotateBtn.addEventListener('click', spin);
+pie.addEventListener('transitionend', afterTransition);
+nextPlayer.addEventListener('click', nextRound);

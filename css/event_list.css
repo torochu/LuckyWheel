@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+a:hover {
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.isDisabled > a {
+  color: currentColor;
+  display: inline-block; /* For IE11/ MS Edge bug */
+  pointer-events: none;
+  text-decoration: none;
+}
+
+main.container {
+  background: #c52032 url('../img/TopWord.png') no-repeat top left;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1200px;
+  height: 100vh;
+  /* margin: 0 auto; */
+}
+
+.inProgress,
+.notAvailable,
+.ended {
+  /* background-color: #ccc; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleWrapper {
+  margin: 10px auto;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category {
+  width: 100%;
+  /* background-color: #aaa; */
+}
+
+article.card {
+  max-width: 200px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: #ddd; */
+}
+article.card .imgWrapper {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+}
+
+article.card .imgWrapper p {
+  position: absolute;
+  top: 48%;
+  left: 35%;
+  z-index: 1000;
+}
+
+article.card .circleImg {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+article.card .title {
+  margin-top: 15px;
+}

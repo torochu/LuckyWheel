@@ -1,76 +1,66 @@
 {
   "eventHistory": [
     {
-      "id": 1608133721866,
-      "eventId": 1234567,
-      "memberName": "Andy",
-      "giftName": "行動電源"
-    },
-    {
-      "id": 1608133739584,
+      "id": 1608539814931,
       "eventId": 1234567,
       "memberName": "Will",
-      "giftName": "娃娃"
-    },
-    {
-      "id": 1608133760936,
-      "eventId": 1234567,
-      "memberName": "Eddie",
       "giftName": "PlayStation 5"
-    },
-    {
-      "id": 1608133772457,
-      "eventId": 1234567,
-      "memberName": "Irene",
-      "giftName": "杯墊"
     }
   ],
   "events": [
     {
       "id": 1234567,
       "name": "1st 爛禮物抽獎大會",
+      "imgUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
       "start": "2020-12-07T00:00:00",
       "end": "2020-12-25T00:00:00"
     },
     {
       "id": 1234569,
       "name": "Christmas 抽獎活動",
+      "imgUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
       "start": "2020-12-04T00:00:00",
       "end": "2020-12-07T00:00:00"
     },
     {
       "id": 1234570,
       "name": "測試 抽獎活動(5)",
+      "imgUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
       "start": "2020-12-08T14:35:00",
       "end": "2020-12-20T00:00:00"
     },
     {
       "id": 1234571,
       "name": "活動 12/12 抽獎",
+      "imgUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
       "start": "2020-12-12T14:35:00",
       "end": "2020-12-13T00:00:00"
     },
     {
       "id": 333,
       "name": "抽獎活動 (6)",
+      "imgUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
       "start": "2020-12-07T14:35:00",
       "end": "2020-12-13T00:00:00"
     },
     {
       "id": 3334,
       "name": "抽獎活動 (7)",
+      "imgUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
       "start": "2020-12-17T14:35:00",
       "end": "2020-12-21T00:00:00"
     },
     {
       "id": 12,
       "name": "抽獎活動 (12)",
-      "start": "2020-12-07T14:35:00",
-      "end": "2020-12-13T00:00:00"
+      "imgUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
+      "start": "2020-12-25T14:35:00",
+      "end": "2020-12-29T00:00:00"
     },
     {
       "id": 9,
       "name": "抽獎活動 (9)",
+      "imgUrl": "https://images.unsplash.com/photo-1608068811588-3a67006b7489?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
       "start": "2020-12-07T14:35:00",
       "end": "2020-12-13T00:00:00"
     }
@@ -127,6 +117,16 @@
       "memberName": "Will9"
     },
     {
+      "id": 123451,
+      "eventId": 1234567,
+      "memberName": "Andy"
+    },
+    {
+      "id": 123452,
+      "eventId": 1234567,
+      "memberName": "Eddie"
+    },
+    {
       "id": 123453,
       "eventId": 1234567,
       "memberName": "Mio"
@@ -135,6 +135,11 @@
       "id": 123454,
       "eventId": 1234567,
       "memberName": "Aki"
+    },
+    {
+      "id": 123455,
+      "eventId": 1234567,
+      "memberName": "Irene"
     },
     {
       "id": 123456,
@@ -222,9 +227,27 @@
       "percent": 10
     },
     {
+      "id": 1235,
+      "eventId": 1234567,
+      "giftName": "娃娃",
+      "percent": 10
+    },
+    {
       "id": 1236,
       "eventId": 1234567,
       "giftName": "飲料杯",
+      "percent": 10
+    },
+    {
+      "id": 1237,
+      "eventId": 1234567,
+      "giftName": "杯墊",
+      "percent": 10
+    },
+    {
+      "id": 1238,
+      "eventId": 1234567,
+      "giftName": "行動電源",
       "percent": 10
     },
     {
